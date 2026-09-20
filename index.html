@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sumaiha & Mohamed | Wedding Invitation</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --white:#fffdfd;
+    --cream:#faf7fb;
+    --purple:#8f78b8;
+    --deep-purple:#5d487e;
+    --soft-purple:#cfc0e5;
+    --lavender:#eee7f6;
+    --gold:#c6a66b;
+    --text:#51465d;
+    --dark:#292230;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:
+        radial-gradient(circle at center,
+        #ffffff 0%,
+        #f5effa 45%,
+        #ded2eb 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:opacity 1.2s ease, visibility 1.2s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-content{
+    text-align:center;
+}
+
+.loader-arabic{
+    font-size:28px;
+    color:var(--deep-purple);
+    margin-bottom:20px;
+}
+
+.loader-line{
+    width:120px;
+    height:1px;
+    background:var(--purple);
+    margin:auto;
+    animation:loaderLine 2s infinite ease-in-out;
+}
+
+@keyframes loaderLine{
+    0%,100%{transform:scaleX(.2);opacity:.3}
+    50%{transform:scaleX(1);opacity:1}
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    height:100vh;
+    min-height:700px;
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(247,243,250,.52),
+            rgba(231,222,241,.72)
+        ),
+        url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2200&q=90");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* cinematic glow */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,255,255,.95),
+            transparent 30%
+        );
+
+    pointer-events:none;
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+#particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:white;
+    box-shadow:
+        0 0 8px white,
+        0 0 15px rgba(255,255,255,.8);
+
+    animation:
+        floatParticle linear infinite,
+        twinkle ease-in-out infinite;
+}
+
+@keyframes floatParticle{
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-10vh);
+    }
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.1}
+    50%{opacity:1}
+}
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    text-align:center;
+
+    animation:
+        heroEntrance 2s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes heroEntrance{
+    from{
+        opacity:0;
+        transform:
+            translateY(50px)
+            scale(.94);
+        filter:blur(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+        filter:blur(0);
+    }
+}
+
+.bismillah{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    color:var(--deep-purple);
+    letter-spacing:1px;
+    margin-bottom:25px;
+}
+
+.small-intro{
+    font-size:11px;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    color:#776782;
+    margin-bottom:18px;
+}
+
+.names{
+    font-family:'Great Vibes',cursive;
+    font-size:
+        clamp(65px,10vw,130px);
+
+    font-weight:400;
+    color:#624b7e;
+
+    text-shadow:
+        0 10px 35px rgba(85,63,111,.18);
+
+    line-height:.95;
+}
+
+.amp{
+    font-family:'Cormorant Garamond',serif;
+    font-size:35px;
+    color:var(--gold);
+    margin:12px;
+}
+
+.date-preview{
+    margin-top:28px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    letter-spacing:4px;
+    color:#675575;
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-indicator{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:10;
+    text-align:center;
+    color:#62516e;
+    animation:scrollPulse 2s infinite;
+}
+
+.scroll-indicator span{
+    display:block;
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.scroll-arrow{
+    width:22px;
+    height:35px;
+    border:1px solid rgba(98,81,110,.7);
+    border-radius:20px;
+    margin:auto;
+    position:relative;
+}
+
+.scroll-arrow::after{
+    content:"";
+    position:absolute;
+    width:3px;
+    height:7px;
+    background:var(--deep-purple);
+    border-radius:5px;
+    left:50%;
+    top:7px;
+    transform:translateX(-50%);
+    animation:mouseScroll 1.6s infinite;
+}
+
+@keyframes mouseScroll{
+    0%{transform:translate(-50%,0);opacity:0}
+    30%{opacity:1}
+    100%{
+        transform:translate(-50%,13px);
+        opacity:0;
+    }
+}
+
+@keyframes scrollPulse{
+    0%,100%{opacity:.55}
+    50%{opacity:1}
+}
+
+/* =========================================================
+   REVEAL SECTION
+========================================================= */
+
+.reveal-stage{
+    height:150vh;
+    position:relative;
+    background:
+        linear-gradient(
+            180deg,
+            #eee8f5,
+            #faf8fb
+        );
+}
+
+/* Eiffel silhouette */
+
+.eiffel{
+    position:absolute;
+    left:50%;
+    top:0;
+
+    width:420px;
+    height:100%;
+
+    transform:
+        translateX(-50%)
+        scale(var(--towerScale,1));
+
+    opacity:.18;
+
+    pointer-events:none;
+}
+
+.eiffel::before{
+    content:"";
+    position:absolute;
+
+    width:80px;
+    height:80%;
+
+    left:50%;
+    top:10%;
+
+    transform:
+        translateX(-50%)
+        perspective(400px)
+        rotateX(2deg);
+
+    border-left:
+        5px solid rgba(91,70,120,.4);
+
+    border-right:
+        5px solid rgba(91,70,120,.4);
+
+    clip-path:
+        polygon(
+            50% 0,
+            78% 18%,
+            88% 48%,
+            100% 100%,
+            0 100%,
+            12% 48%,
+            22% 18%
+        );
+}
+
+.eiffel::after{
+    content:"";
+    position:absolute;
+
+    left:50%;
+    top:15%;
+
+    width:300px;
+    height:400px;
+
+    transform:translateX(-50%);
+
+    background:
+        repeating-linear-gradient(
+            15deg,
+            transparent 0,
+            transparent 28px,
+            rgba(92,72,120,.12) 29px,
+            transparent 31px
+        );
+
+    opacity:.7;
+}
+
+.stage-text{
+    position:sticky;
+    top:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    z-index:4;
+}
+
+.stage-text h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(30px,5vw,60px);
+    font-weight:400;
+    color:#665175;
+}
+
+.stage-text p{
+    margin-top:15px;
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   FLYING INVITATION
+========================================================= */
+
+.invitation-flight{
+    position:absolute;
+
+    top:55%;
+    left:50%;
+
+    width:min(440px,85vw);
+
+    transform:
+        translate(-50%,-50%)
+        translateY(500px)
+        rotateX(35deg)
+        rotateZ(-10deg)
+        scale(.3);
+
+    opacity:0;
+
+    z-index:20;
+
+    perspective:1000px;
+
+    transition:
+        transform .15s linear,
+        opacity .15s linear;
+}
+
+.invitation-card{
+    position:relative;
+
+    min-height:600px;
+
+    padding:65px 45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.98),
+            rgba(246,240,251,.98)
+        );
+
+    border:
+        1px solid rgba(128,102,157,.25);
+
+    border-radius:4px;
+
+    box-shadow:
+        0 50px 100px rgba(60,45,80,.25),
+        0 15px 40px rgba(91,67,113,.15);
+
+    overflow:hidden;
+}
+
+/* card glow */
+
+.invitation-card::before{
+    content:"";
+    position:absolute;
+    inset:15px;
+
+    border:
+        1px solid rgba(167,136,193,.4);
+
+    pointer-events:none;
+}
+
+.card-flower{
+    position:absolute;
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(196,170,218,.35),
+            transparent 65%
+        );
+
+    filter:blur(5px);
+}
+
+.flower-one{
+    top:-80px;
+    left:-80px;
+}
+
+.flower-two{
+    bottom:-80px;
+    right:-80px;
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content{
+    position:relative;
+    z-index:3;
+    text-align:center;
+}
+
+.card-bismillah{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    color:#624a78;
+}
+
+.card-small{
+    margin-top:30px;
+    font-size:9px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#8b7998;
+}
+
+.card-names{
+    margin-top:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:62px;
+    line-height:1;
+    color:#654d80;
+}
+
+.card-amp{
+    color:var(--gold);
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    margin:8px;
+}
+
+.card-divider{
+    width:80px;
+    height:1px;
+    background:var(--gold);
+    margin:25px auto;
+}
+
+.card-date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    color:#57465f;
+}
+
+.card-time{
+    margin-top:8px;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.card-venue{
+    margin-top:35px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    color:#634e70;
+}
+
+.card-location{
+    font-size:10px;
+    letter-spacing:2px;
+    margin-top:7px;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.content{
+    position:relative;
+    background:
+        linear-gradient(
+            180deg,
+            #faf8fb,
+            #f2ecf7
+        );
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:
+        100px
+        25px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.section-inner{
+    max-width:900px;
+    width:100%;
+    text-align:center;
+}
+
+.section-kicker{
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#927ca2;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(45px,7vw,80px);
+    font-weight:400;
+    color:#624c73;
+}
+
+.section-text{
+    max-width:600px;
+    margin:25px auto;
+    line-height:2;
+    font-size:14px;
+    color:#716578;
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-section{
+    background:
+        radial-gradient(
+            circle at center,
+            #ffffff,
+            #ede5f4
+        );
+}
+
+.countdown{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+
+    max-width:700px;
+
+    margin:50px auto 0;
+}
+
+.count-box{
+    padding:30px 15px;
+
+    border:
+        1px solid rgba(130,103,154,.2);
+
+    background:
+        rgba(255,255,255,.6);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 15px 40px rgba(95,73,113,.08);
+}
+
+.count-number{
+    font-family:'Cormorant Garamond',serif;
+    font-size:55px;
+    color:#634c78;
+}
+
+.count-label{
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#8a788f;
+}
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details{
+    background:#faf8fb;
+}
+
+.detail-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:25px;
+
+    max-width:850px;
+
+    margin:50px auto;
+}
+
+.detail-card{
+    padding:50px 30px;
+
+    background:
+        rgba(255,255,255,.75);
+
+    border:
+        1px solid rgba(131,105,155,.18);
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+}
+
+.detail-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+        0 25px 60px rgba(92,68,111,.12);
+}
+
+.detail-icon{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.detail-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    color:#644e75;
+}
+
+.detail-info{
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-section{
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(246,241,250,.82),
+            rgba(246,241,250,.95)
+        ),
+        url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2200&q=90");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+.final-names{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(65px,11vw,130px);
+    color:#624c7a;
+}
+
+.final-message{
+    margin-top:25px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    color:#66566e;
+}
+
+.final-line{
+    width:100px;
+    height:1px;
+
+    background:var(--gold);
+
+    margin:35px auto;
+}
+
+.final-date{
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   PETALS
+========================================================= */
+
+.petal{
+    position:fixed;
+
+    top:-20px;
+
+    width:9px;
+    height:13px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        rgba(198,173,216,.45);
+
+    pointer-events:none;
+
+    z-index:100;
+
+    animation:
+        fall linear forwards;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+            translateY(-30px)
+            rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.7;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(100px)
+            rotate(500deg);
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music-button{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(100,76,122,.25);
+
+    background:
+        rgba(255,255,255,.65);
+
+    backdrop-filter:blur(15px);
+
+    color:#654d7d;
+
+    cursor:pointer;
+
+    z-index:500;
+
+    font-size:18px;
+
+    box-shadow:
+        0 10px 30px rgba(70,50,90,.12);
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(70px)
+        scale(.96);
+
+    transition:
+        opacity 1.2s cubic-bezier(.22,1,.36,1),
+        transform 1.2s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .bismillah{
+        font-size:24px;
+    }
+
+    .names{
+        font-size:70px;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .reveal-stage{
+        height:130vh;
+    }
+
+    .invitation-card{
+        min-height:540px;
+        padding:55px 30px;
+    }
+
+    .card-names{
+        font-size:53px;
+    }
+
+    .countdown{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .count-number{
+        font-size:43px;
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:
+            90px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-content">
+
+        <div class="loader-arabic">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="hero">
+
+    <div id="particles"></div>
+
+    <div class="hero-content">
+
+        <div class="bismillah">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </div>
+
+        <div class="small-intro">
+            In the name of Allah, the Most Gracious, the Most Merciful
+        </div>
+
+        <div class="names">
+            Sumaiha
+            <span class="amp">&</span>
+            Mohamed
+        </div>
+
+        <div class="date-preview">
+            04 · 11 · 2027
+        </div>
+
+    </div>
+
+
+    <div class="scroll-indicator">
+
+        <span>Scroll to reveal</span>
+
+        <div class="scroll-arrow"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CINEMATIC CARD REVEAL
+===================================================== -->
+
+<section class="reveal-stage" id="revealStage">
+
+    <div class="eiffel"></div>
+
+
+    <div class="stage-text">
+
+        <div>
+
+            <h2>
+                Our story begins here
+            </h2>
+
+            <p>
+                Keep scrolling
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="invitation-flight" id="invitationFlight">
+
+        <div class="invitation-card">
+
+            <div class="card-flower flower-one"></div>
+            <div class="card-flower flower-two"></div>
+
+            <div class="card-content">
+
+                <div class="card-bismillah">
+                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                </div>
+
+                <div class="card-small">
+                    Together with their families
+                </div>
+
+                <div class="card-names">
+                    Sumaiha
+                    <div class="card-amp">&</div>
+                    Mohamed
+                </div>
+
+                <div class="card-divider"></div>
+
+                <div class="card-date">
+                    04 November 2027
+                </div>
+
+                <div class="card-time">
+                    8.00 PM onwards
+                </div>
+
+                <div class="card-venue">
+                    Galle Star Banquet Hall
+                </div>
+
+                <div class="card-location">
+                    Galle
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="content">
+
+
+<!-- OUR INVITATION -->
+
+<section class="section">
+
+    <div class="section-inner reveal">
+
+        <div class="section-kicker">
+            With love & gratitude
+        </div>
+
+        <h2 class="section-title">
+            You are warmly invited
+        </h2>
+
+        <p class="section-text">
+
+            With the blessings of our families and the grace
+            of Allah, we joyfully invite you to celebrate
+            the beginning of our beautiful journey together.
+
+            Your presence and prayers would mean the world
+            to us as we begin this new chapter of our lives.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="section countdown-section">
+
+    <div class="section-inner reveal">
+
+        <div class="section-kicker">
+            Counting every moment
+        </div>
+
+        <h2 class="section-title">
+            Until our special day
+        </h2>
+
+
+        <div class="countdown">
+
+            <div class="count-box">
+
+                <div class="count-number" id="days">
+                    000
+                </div>
+
+                <div class="count-label">
+                    Days
+                </div>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <div class="count-number" id="hours">
+                    00
+                </div>
+
+                <div class="count-label">
+                    Hours
+                </div>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <div class="count-number" id="minutes">
+                    00
+                </div>
+
+                <div class="count-label">
+                    Minutes
+                </div>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <div class="count-number" id="seconds">
+                    00
+                </div>
+
+                <div class="count-label">
+                    Seconds
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DETAILS
+===================================================== -->
+
+<section class="section details">
+
+    <div class="section-inner reveal">
+
+        <div class="section-kicker">
+            Save the date
+        </div>
+
+        <h2 class="section-title">
+            The Celebration
+        </h2>
+
+
+        <div class="detail-grid">
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ♡
+                </div>
+
+                <div class="detail-title">
+                    The Couple
+                </div>
+
+                <div class="detail-info">
+                    Sumaiha<br>
+                    &<br>
+                    Mohamed
+                </div>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ♧
+                </div>
+
+                <div class="detail-title">
+                    Date & Time
+                </div>
+
+                <div class="detail-info">
+
+                    Thursday<br>
+
+                    04 November 2027<br>
+
+                    8.00 PM onwards
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ✦
+                </div>
+
+                <div class="detail-title">
+                    Venue
+                </div>
+
+                <div class="detail-info">
+
+                    Galle Star Banquet Hall<br>
+
+                    Galle
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ❋
+                </div>
+
+                <div class="detail-title">
+                    With Love
+                </div>
+
+                <div class="detail-info">
+
+                    We cannot wait to celebrate<br>
+
+                    this beautiful beginning<br>
+
+                    with you.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section class="final-section">
+
+    <div class="reveal">
+
+        <div class="section-kicker">
+            Until forever
+        </div>
+
+        <div class="final-names">
+
+            Sumaiha
+            <br>
+
+            <span style="font-family:'Cormorant Garamond'">
+                &
+            </span>
+
+            <br>
+
+            Mohamed
+
+        </div>
+
+        <div class="final-line"></div>
+
+        <div class="final-message">
+
+            Two hearts.<br>
+            One beautiful journey.
+
+        </div>
+
+        <div class="final-date">
+
+            04 · 11 · 2027
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- MUSIC BUTTON -->
+
+<button class="music-button" id="musicButton">
+    ♫
+</button>
+
+
+<audio id="weddingMusic" loop>
+
+   <source src="music.mp3.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("loader")
+        .classList.add("hide");
+
+    },1200);
+
+});
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+const particleContainer =
+    document.getElementById("particles");
+
+for(let i=0;i<90;i++){
+
+    const p =
+        document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left =
+        Math.random()*100+"%";
+
+    p.style.animationDuration =
+        (8+Math.random()*14)+"s";
+
+    p.style.animationDelay =
+        (-Math.random()*15)+"s";
+
+    p.style.width =
+        (1+Math.random()*3)+"px";
+
+    p.style.height =
+        p.style.width;
+
+    particleContainer.appendChild(p);
+
+}
+
+
+/* =========================================================
+   CINEMATIC CARD SCROLL
+========================================================= */
+
+const stage =
+    document.getElementById("revealStage");
+
+const card =
+    document.getElementById("invitationFlight");
+
+const tower =
+    document.querySelector(".eiffel");
+
+const stageText =
+    document.querySelector(".stage-text");
+
+
+function updateFlight(){
+
+    const rect =
+        stage.getBoundingClientRect();
+
+    const scrollable =
+        stage.offsetHeight -
+        window.innerHeight;
+
+    let progress =
+        -rect.top / scrollable;
+
+    progress =
+        Math.max(0,
+        Math.min(1,progress));
+
+
+    /*
+       CARD FLIGHT
+    */
+
+    const y =
+        500 - progress*500;
+
+    const rotateX =
+        35 - progress*35;
+
+    const rotateZ =
+        -10 + progress*10;
+
+    const scale =
+        .3 + progress*.7;
+
+    const opacity =
+        Math.min(1,progress*3);
+
+
+    card.style.transform =
+        `
+        translate(-50%,-50%)
+        translateY(${y}px)
+        rotateX(${rotateX}deg)
+        rotateZ(${rotateZ}deg)
+        scale(${scale})
+        `;
+
+    card.style.opacity =
+        opacity;
+
+
+    /*
+       TOWER PARALLAX
+    */
+
+    tower.style.setProperty(
+        "--towerScale",
+        1 + progress*.08
+    );
+
+
+    /*
+       TEXT FADE
+    */
+
+    stageText.style.opacity =
+        Math.max(0,1-progress*3);
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateFlight,
+    {passive:true}
+);
+
+updateFlight();
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                    .classList
+                    .add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.18
+        }
+
+    );
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+/*
+   November 4 2027
+   8:00 PM
+*/
+
+const weddingDate =
+    new Date(
+        "November 4, 2027 20:00:00"
+    ).getTime();
+
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        weddingDate-now;
+
+
+    if(distance<=0){
+
+        document.getElementById("days")
+        .innerText="000";
+
+        document.getElementById("hours")
+        .innerText="00";
+
+        document.getElementById("minutes")
+        .innerText="00";
+
+        document.getElementById("seconds")
+        .innerText="00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance/
+            (1000*60*60*24)
+        );
+
+    const hours =
+        Math.floor(
+            (distance/
+            (1000*60*60))%24
+        );
+
+    const minutes =
+        Math.floor(
+            (distance/
+            (1000*60))%60
+        );
+
+    const seconds =
+        Math.floor(
+            (distance/1000)%60
+        );
+
+
+    document.getElementById("days")
+    .innerText =
+        String(days).padStart(3,"0");
+
+
+    document.getElementById("hours")
+    .innerText =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+    .innerText =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+    .innerText =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================================================
+   FLOATING PETALS
+========================================================= */
+
+function createPetal(){
+
+    const petal =
+        document.createElement("div");
+
+    petal.className="petal";
+
+    petal.style.left =
+        Math.random()*100+"vw";
+
+    petal.style.animationDuration =
+        (7+Math.random()*8)+"s";
+
+    petal.style.opacity =
+        .2+Math.random()*.6;
+
+    petal.style.transform =
+        `rotate(${Math.random()*360}deg)`;
+
+    document.body.appendChild(petal);
+
+
+    setTimeout(()=>{
+
+        petal.remove();
+
+    },15000);
+
+}
+
+
+setInterval(
+    createPetal,
+    1300
+);
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const musicButton = document.getElementById("musicButton");
+const music = document.getElementById("weddingMusic");
+
+let playing = false;
+let musicStarted = false;
+
+
+/* Start music */
+async function startMusic() {
+
+    try {
+
+        await music.play();
+
+        playing = true;
+        musicStarted = true;
+
+        musicButton.innerHTML = "❚❚";
+
+    } catch (error) {
+
+        console.log("Music needs user interaction.");
+
+    }
+
+}
+
+
+/* Music button */
+musicButton.addEventListener("click", async () => {
+
+    if (!playing) {
+
+        await startMusic();
+
+    } else {
+
+        music.pause();
+
+        playing = false;
+
+        musicButton.innerHTML = "♫";
+
+    }
+
+});
+
+
+/*
+   Start music when visitor scrolls.
+   This works after the visitor interacts
+   with the invitation.
+*/
+window.addEventListener("scroll", async () => {
+
+    if (!musicStarted) {
+
+        await startMusic();
+
+    }
+
+}, { passive: true });
+
+
+
+
+musicButton.addEventListener(
+    "click",
+    async()=>{
+
+        if(!music.src){
+
+            alert(
+                "Add your MP3 file to the audio section first."
+            );
+
+            return;
+
+        }
+
+
+        if(!playing){
+
+            await music.play();
+
+            playing=true;
+
+            musicButton.innerHTML="❚❚";
+
+        }
+
+        else{
+
+            music.pause();
+
+            playing=false;
+
+            musicButton.innerHTML="♫";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MOUSE PARALLAX
+========================================================= */
+
+const hero =
+    document.getElementById("hero");
+
+hero.addEventListener(
+    "mousemove",
+    e=>{
+
+        const x =
+            (e.clientX/
+            window.innerWidth-.5);
+
+        const y =
+            (e.clientY/
+            window.innerHeight-.5);
+
+
+        hero.style.backgroundPosition =
+            `
+            calc(50% + ${x*12}px)
+            calc(50% + ${y*12}px)
+            `;
+
+    }
+);
+
+
+/* =========================================================
+   PREVENT RUBBER BAND GLITCH
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    updateFlight
+);
+
+</script>
+
+</body>
+</html>
